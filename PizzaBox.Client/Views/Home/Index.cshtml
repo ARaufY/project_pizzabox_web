@@ -1,8 +1,20 @@
-﻿@{
+﻿@model PizzaBox.Client.Models.OrderViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <form action="/order" method="post">
+        @foreach (var item in Model.Crusts)
+        {
+            <label for="@item">@item</label>
+            <input type="radio" id="@item" name="selectedcrust" value="@item">
+        }
+
+        <button type="submit">Select Crust</button>
+
+    </form>
+
 </div>
