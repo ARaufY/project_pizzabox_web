@@ -1,6 +1,7 @@
+
 namespace PizzaBox.Domain.Abstracts
 {
-  public abstract class Entity
+  public abstract class AModel
   {
     public long EntityId { get; set; }
   }

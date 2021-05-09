@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PizzaBox.Domain.Interfaces;
 using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Storage.Repositories
 {
-  public class OrderRepository : IRepository<Order>
+  public class CustomerRepository : IRepository<Customer>
   {
     private readonly PizzaBoxContext _context;
 
-    public OrderRepository(PizzaBoxContext context)
+    public CustomerRepository(PizzaBoxContext context)
     {
       _context = context;
     }
@@ -19,18 +20,17 @@ namespace PizzaBox.Storage.Repositories
       throw new System.NotImplementedException();
     }
 
-    public bool Insert(Order entry)
-    {
-      _context.Orders.Add(entry);
-      return true;
-    }
-
-    public IEnumerable<Order> Select(Func<Order, bool> filter)
+    public bool Insert(Customer entry)
     {
       throw new System.NotImplementedException();
     }
 
-    public Order Update()
+    public IEnumerable<Customer> Select(Func<Customer, bool> filter)
+    {
+      return _context.Customer.Where(filter);
+    }
+
+    public Customer Update()
     {
       throw new System.NotImplementedException();
     }

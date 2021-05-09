@@ -3,18 +3,4 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-
-    <form action="/order" method="post">
-        @foreach (var item in Model.Crusts)
-        {
-            <label for="@item">@item</label>
-            <input type="radio" id="@item" name="selectedcrust" value="@item">
-        }
-
-        <button type="submit">Select Crust</button>
-
-    </form>
-
-</div>
+<a asp-controller="order">make an order</a>

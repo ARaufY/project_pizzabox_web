@@ -3,7 +3,7 @@ using PizzaBox.Domain.Abstracts;
 
 namespace PizzaBox.Domain.Models
 {
-  public class Crust : Entity
+  public class Crust : AModel
   {
     public string Name { get; set; }
     public ICollection<Pizza> Pizzas { get; set; }

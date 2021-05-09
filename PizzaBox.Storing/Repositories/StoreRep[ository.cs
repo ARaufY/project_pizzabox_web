@@ -5,11 +5,11 @@ using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Storage.Repositories
 {
-  public class OrderRepository : IRepository<Order>
+  public class StoreRepository : IRepository<Store>
   {
     private readonly PizzaBoxContext _context;
 
-    public OrderRepository(PizzaBoxContext context)
+    public StoreRepository(PizzaBoxContext context)
     {
       _context = context;
     }
@@ -19,18 +19,18 @@ namespace PizzaBox.Storage.Repositories
       throw new System.NotImplementedException();
     }
 
-    public bool Insert(Order entry)
+    public bool Insert(Store entry)
     {
-      _context.Orders.Add(entry);
+      _context.Stores.Add(entry);
       return true;
     }
 
-    public IEnumerable<Order> Select(Func<Order, bool> filter)
+    public IEnumerable<Store> Select(Func<Store, bool> filter)
     {
       throw new System.NotImplementedException();
     }
 
-    public Order Update()
+    public Store Update()
     {
       throw new System.NotImplementedException();
     }
