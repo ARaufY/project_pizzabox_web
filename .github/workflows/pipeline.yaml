@@ -11,6 +11,9 @@ jobs:
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover  -p:CoverletOuput=-l trx -o 'test_result'
   
   analyze:
+    needs:
+      - build
+      - test
     env:
       SONAR_TOKEN: '{{secrets.SONAR_TOKEN}}'
     runs-on: ubuntu-20.04
