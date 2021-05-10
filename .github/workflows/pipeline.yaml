@@ -4,6 +4,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet build
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger=trx
+  
+  analyze:
+    env:
+      SONAR_TOKEN: '{{secrets.SONAR_TOKEN}}'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet tool install -g dotnet-sonarscanner
+      - run: dotnet sonarscanner begin -k:'araufy' -o:'Abdul-Rauf Yakubu' -d.sonar.login=$SONAR_TOKEN -d.sonar.url='https://sonarscanner.io'
+      - run: dotnet build
+      - run: dotnet sonarscanner end -d.sonar.login=$SONAR_TOKEN
+
 
 
 name: ci-pipeline

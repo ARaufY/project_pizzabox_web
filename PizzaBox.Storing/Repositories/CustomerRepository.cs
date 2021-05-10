@@ -27,7 +27,7 @@ namespace PizzaBox.Storage.Repositories
 
     public IEnumerable<Customer> Select(Func<Customer, bool> filter)
     {
-      return _context.Customer.Where(filter);
+      return _context.Customers.Where(filter);
     }
 
     public Customer Update()

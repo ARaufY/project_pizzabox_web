@@ -15,12 +15,13 @@ namespace PizzaBox.Client
 {
   public class Startup
   {
+    public IConfiguration Configuration { get; }
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
     }
 
-    public IConfiguration Configuration { get; }
+
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -29,7 +30,7 @@ namespace PizzaBox.Client
       services.AddScoped<UnitOfWork>();
       services.AddDbContext<PizzaBoxContext>(options =>
       {
-        options.UseNpgsql(Configuration.GetConnectionString("pgsql"), opts =>
+        options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
         {
           opts.EnableRetryOnFailure();
         });

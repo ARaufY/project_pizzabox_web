@@ -1,16 +1,39 @@
 <h2>Thank you for your order</h2>
 <a href="/home">home</a>
 
-@foreach (var item in ViewBag.Order.Pizzas)
-{
-  <p>Crust: @item.Crust</p>
-  <p>Size: @item.Size</p>
-  <p>Toppings:</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">
+        Crust
+      </th>
+      <th scope="col">
+        Size
+      </th>
+      <th scope="">
+        Toppings
+      </th>
+    </tr>
+  </thead>
 
-  <ul>
-  @foreach (var thing in item.Toppings)
-    {
-      <li>@thing</li>
-    }
-  </ul>
-}
+  @foreach (var item in ViewBag.Order.Pizzas)
+  {
+    <tr>
+      <td>
+        @item.Crust
+      </td>
+      <td>
+        @item.Size
+      </td>
+      <td>
+        <ul>
+          @foreach (var thing in item.Toppings)
+          {
+            <li>@thing</li>
+          }
+        </ul>
+      </td>
+    </tr>
+
+  }
+</table>

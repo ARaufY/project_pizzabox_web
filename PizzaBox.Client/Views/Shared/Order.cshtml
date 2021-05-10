@@ -39,11 +39,13 @@
     @foreach (var item in Model.Toppings)
     {
       <div class="form-check">
+
         <input class="form-check-input" type="checkbox" id="@item" name="selectedtoppings" value="@item">
         <label class="form-check-label" for="@item">@item</label>
+
       </div>
     }
   </fieldset>
 
-  <button type="submit">make pizza</button>
+  <button type="submit">Add to Order</button>
 </form>
