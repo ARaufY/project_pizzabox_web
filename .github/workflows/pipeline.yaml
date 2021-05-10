@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet tool install -g dotnet-sonarscanner
-      - run: dotnet sonarscanner begin -k:'araufy' -o:'Abdul-Rauf Yakubu' -d.sonar.login=$SONAR_TOKEN -d.sonar.url='https://sonarscanner.io'
+      - run: dotnet sonarscanner begin -k:'araufy' -o:'Abdul-Rauf Yakubu' -d:sonar.login=$SONAR_TOKEN -d:sonar.host.url='https://sonarscanner.io'
       - run: dotnet build
-      - run: dotnet sonarscanner end -d.sonar.login=$SONAR_TOKEN
+      - run: dotnet sonarscanner end -d:sonar.login=$SONAR_TOKEN
 
 
 
