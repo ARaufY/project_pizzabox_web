@@ -32,14 +32,14 @@ jobs:
       DOCKER_USER: ${{secrets.DOKCER_TOKEN}}
       needs:
         - analyze
-      runs-on: ubuntu-20.04
-      steps:
-        - uses: actions/checkout@v2
-        - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-        - run: docker image build -f Dockerfile -t pizzabox .
-        - run: docker image tag pizzabox ARaufY/pizzabox
-        - run: docker push ARaufY/pizzabox
-        - run: docker logout
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+      - run: docker image build -f Dockerfile -t pizzabox .
+      - run: docker image tag pizzabox ARaufY/pizzabox
+      - run: docker push ARaufY/pizzabox
+      - run: docker logout
 
 
 name: ci-pipeline
