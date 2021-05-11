@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker image build -f Dockerfile -t pizzabox .
-      - run: docker image tag pizzabox ARaufY/pizzabox
+      - run: docker image tag pizzabox araufy/pizzabox
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - run: docker push ARaufY/pizzabox
       - run: docker logout
