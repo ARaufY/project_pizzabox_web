@@ -22,21 +22,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet tool install -g dotnet-sonarscanner
-      - run: dotnet sonarscanner begin -k:'pizza' -o:'pizza' -d:sonar.login=$SONAR_TOKEN -d:sonar.host.url=https://sonarcloud.io
+      - run: dotnet sonarscanner begin -k:'ARaufY_project_pizzabox_web' -o:'pizza' -d:sonar.login=$SONAR_TOKEN -d:sonar.host.url=https://sonarcloud.io
       - run: dotnet build
       - run: dotnet sonarscanner end -d:sonar.login=$SONAR_TOKEN
   
   package:
     env:
       DOCKER_TOKEN: ${{secrets.DOKCER_TOKEN}}
-      nedds:
+      DOCKER_USER: ${{secrets.DOKCER_TOKEN}}
+      needs:
         - analyze
       runs-on: ubuntu-20.04
       steps:
         - uses: actions/checkout@v2
         - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
         - run: docker image build -f Dockerfile -t pizzabox .
-        - run: docker image 
+        - run: docker image tag pizzabox ARaufY/pizzabox
+        - run: docker push ARaufY/pizzabox
+        - run: docker logout
 
 
 name: ci-pipeline
