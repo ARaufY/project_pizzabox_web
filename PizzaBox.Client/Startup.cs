@@ -28,6 +28,8 @@ namespace PizzaBox.Client
     {
       services.AddControllersWithViews();
       services.AddScoped<UnitOfWork>();
+
+
       services.AddDbContext<PizzaBoxContext>(options =>
       {
         options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>

@@ -41,7 +41,7 @@ namespace PizzaBox.Client.Controllers
 
         ViewBag.Order = newOrder;
 
-        return View("checkout");
+        //return View("checkout");
       }
 
       order.Load(_unitOfWork);
