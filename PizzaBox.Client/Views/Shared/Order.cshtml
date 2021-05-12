@@ -1,7 +1,7 @@
 @model PizzaBox.Client.Models.OrderViewModel
 
 
-<form action="/order" method="post">
+<form action="/order" method="post" class="row-fluid well">
   @Html.AntiForgeryToken()
   <fieldset>
     <legend>Select a Customer</legend>
@@ -21,6 +21,7 @@
     <legend>Select a Store</legend>
 
     @Html.ValidationMessageFor(m => m.SelectedStore)
+
 
     @foreach (var item in Model.Stores)
     {
