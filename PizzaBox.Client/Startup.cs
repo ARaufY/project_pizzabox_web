@@ -32,7 +32,7 @@ namespace PizzaBox.Client
 
       services.AddDbContext<PizzaBoxContext>(options =>
       {
-        options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
+        options.UseSqlServer(Configuration.GetConnectionString("msql"), opts =>
         {
           opts.EnableRetryOnFailure();
         });
