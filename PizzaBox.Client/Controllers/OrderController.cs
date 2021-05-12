@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +37,7 @@ namespace PizzaBox.Client.Controllers
         }
 
         var newPizza = new Pizza { Crust = crust, Size = size, Toppings = toppings };
-        var newOrder = new Order { Pizzas = new List<Pizza> { newPizza }, Customer = customer, Store = store };
+        var newOrder = new Order { Pizzas = new List<Pizza> { newPizza }, Customer = customer, Store = store, OrderDate = DateTime.Now };
 
         _unitOfWork.Orders.Insert(newOrder);
         _unitOfWork.Save();
