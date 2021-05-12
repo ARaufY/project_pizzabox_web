@@ -15,14 +15,26 @@ namespace PizzaBox.Storage.Repositories
       _context = context;
     }
 
-    public bool Delete()
+    public bool Delete(Size entry)
     {
-      throw new System.NotImplementedException();
+      try
+      {
+        _context.Sizes.Remove(entry);
+        return true;
+      }
+      catch
+      {
+        System.Console.WriteLine("Unable to delete size");
+      }
+
+
+      return false;
     }
 
     public bool Insert(Size entry)
     {
-      throw new System.NotImplementedException();
+      _context.Sizes.Add(entry);
+      return true;
     }
 
     public IEnumerable<Size> Select(Func<Size, bool> filter)

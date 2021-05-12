@@ -112,6 +112,20 @@ namespace PizzaBox.Storing.Migrations
                             Name = "Clark Kent",
                             OrderEntityId = 0L,
                             StoreEntiryId = 0L
+                        },
+                        new
+                        {
+                            EntityId = 3L,
+                            Name = "Dan Kent",
+                            OrderEntityId = 0L,
+                            StoreEntiryId = 0L
+                        },
+                        new
+                        {
+                            EntityId = 4L,
+                            Name = "Sam Jones",
+                            OrderEntityId = 0L,
+                            StoreEntiryId = 0L
                         });
                 });
 
@@ -227,6 +241,26 @@ namespace PizzaBox.Storing.Migrations
                     b.HasKey("EntityId");
 
                     b.ToTable("Stores");
+
+                    b.HasData(
+                        new
+                        {
+                            EntityId = 1L,
+                            Name = "Main St. Store",
+                            OrderEntityId = 0L
+                        },
+                        new
+                        {
+                            EntityId = 2L,
+                            Name = "Ace Store",
+                            OrderEntityId = 0L
+                        },
+                        new
+                        {
+                            EntityId = 3L,
+                            Name = "Lane Avenue Store",
+                            OrderEntityId = 0L
+                        });
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.Topping", b =>
@@ -251,7 +285,7 @@ namespace PizzaBox.Storing.Migrations
                         {
                             EntityId = 1L,
                             Name = "pepperoni",
-                            Price = 2.0m
+                            Price = 1.0m
                         },
                         new
                         {
@@ -263,19 +297,37 @@ namespace PizzaBox.Storing.Migrations
                         {
                             EntityId = 3L,
                             Name = "ham",
-                            Price = 2.0m
+                            Price = 1.3m
                         },
                         new
                         {
                             EntityId = 4L,
                             Name = "green peppers",
-                            Price = 2.0m
+                            Price = 1.0m
                         },
                         new
                         {
                             EntityId = 5L,
                             Name = "black olives",
                             Price = 2.0m
+                        },
+                        new
+                        {
+                            EntityId = 6L,
+                            Name = "beaf",
+                            Price = 3.0m
+                        },
+                        new
+                        {
+                            EntityId = 7L,
+                            Name = "chicken",
+                            Price = 3.0m
+                        },
+                        new
+                        {
+                            EntityId = 8L,
+                            Name = "Onions",
+                            Price = 0.6m
                         });
                 });
 

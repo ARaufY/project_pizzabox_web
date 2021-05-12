@@ -1,7 +1,35 @@
 @model PizzaBox.Client.Models.OrderViewModel
 
+
 <form action="/order" method="post">
   @Html.AntiForgeryToken()
+  <fieldset>
+    <legend>Select a Customer</legend>
+
+    @Html.ValidationMessageFor(m => m.SelectedCustomer)
+
+    @foreach (var item in Model.Customers)
+    {
+      <div class="form-check">
+        <input class="form-check-input" type="radio" asp-for="SelectedCustomer" value="@item">
+        <label class="form-check-label" for="@item">@item </label>
+      </div>
+    }
+  </fieldset>
+
+  <fieldset>
+    <legend>Select a Store</legend>
+
+    @Html.ValidationMessageFor(m => m.SelectedStore)
+
+    @foreach (var item in Model.Stores)
+    {
+      <div class="form-check">
+        <input class="form-check-input" type="radio" asp-for="SelectedStore" value="@item">
+        <label class="form-check-label" for="@item">@item </label>
+      </div>
+    }
+  </fieldset>
 
   <fieldset>
     <legend>Crusts</legend>
@@ -12,7 +40,7 @@
     {
       <div class="form-check">
         <input class="form-check-input" type="radio" asp-for="SelectedCrust" value="@item">
-        <label class="form-check-label" for="@item">@item"</label>
+        <label class="form-check-label" for="@item">@item @item.Price</label>
       </div>
     }
   </fieldset>
@@ -26,7 +54,7 @@
     {
       <div class="form-check">
         <input class="form-check-input" type="radio" asp-for="SelectedSize" value="@item">
-        <label class="form-check-label" for="@item">@item</label>
+        <label class="form-check-label" for="@item">@item @item.Price</label>
       </div>
     }
   </fieldset>
@@ -41,7 +69,7 @@
       <div class="form-check">
 
         <input class="form-check-input" type="checkbox" id="@item" name="selectedtoppings" value="@item">
-        <label class="form-check-label" for="@item">@item</label>
+        <label class="form-check-label" for="@item">@item @item.Price</label>
 
       </div>
     }

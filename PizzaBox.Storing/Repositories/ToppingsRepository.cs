@@ -17,14 +17,16 @@ namespace PizzaBox.Storage.Repositories
       _context = context;
     }
 
-    public bool Delete()
+    public bool Delete(Topping entry)
     {
-      throw new System.NotImplementedException();
+      _context.Toppings.Remove(entry);
+      return true;
     }
 
     public bool Insert(Topping entry)
     {
-      throw new System.NotImplementedException();
+      _context.Toppings.Add(entry);
+      return true;
     }
 
     public IEnumerable<Topping> Select(Func<Topping, bool> filter)

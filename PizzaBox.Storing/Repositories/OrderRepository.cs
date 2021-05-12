@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PizzaBox.Domain.Interfaces;
 using PizzaBox.Domain.Models;
 
@@ -14,9 +15,10 @@ namespace PizzaBox.Storage.Repositories
       _context = context;
     }
 
-    public bool Delete()
+    public bool Delete(Order entry)
     {
-      throw new System.NotImplementedException();
+      _context.Orders.Remove(entry);
+      return true;
     }
 
     public bool Insert(Order entry)
@@ -27,7 +29,7 @@ namespace PizzaBox.Storage.Repositories
 
     public IEnumerable<Order> Select(Func<Order, bool> filter)
     {
-      throw new System.NotImplementedException();
+      return _context.Orders.Where(filter);
     }
 
     public Order Update()

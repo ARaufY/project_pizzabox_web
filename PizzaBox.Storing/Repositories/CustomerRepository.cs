@@ -15,14 +15,16 @@ namespace PizzaBox.Storage.Repositories
       _context = context;
     }
 
-    public bool Delete()
+    public bool Delete(Customer entry)
     {
-      throw new System.NotImplementedException();
+      _context.Customers.Remove(entry);
+      return true;
     }
 
     public bool Insert(Customer entry)
     {
-      throw new System.NotImplementedException();
+      _context.Customers.Add(entry);
+      return true;
     }
 
     public IEnumerable<Customer> Select(Func<Customer, bool> filter)

@@ -26,6 +26,8 @@ namespace PizzaBox.Client.Controllers
       {
         var crust = _unitOfWork.Crusts.Select(c => c.Name == order.SelectedCrust).First();
         var size = _unitOfWork.Sizes.Select(s => s.Name == order.SelectedSize).First();
+        var store = _unitOfWork.Stores.Select(s => s.Name == order.SelectedStore).First();
+        var customer = _unitOfWork.Customers.Select(s => s.Name == order.SelectedCustomer).First();
         var toppings = new List<Topping>();
 
         foreach (var item in order.SelectedToppings)
@@ -34,14 +36,14 @@ namespace PizzaBox.Client.Controllers
         }
 
         var newPizza = new Pizza { Crust = crust, Size = size, Toppings = toppings };
-        var newOrder = new Order { Pizzas = new List<Pizza> { newPizza } };
+        var newOrder = new Order { Pizzas = new List<Pizza> { newPizza }, Customer = customer, Store = store };
 
         _unitOfWork.Orders.Insert(newOrder);
         _unitOfWork.Save();
 
         ViewBag.Order = newOrder;
 
-        //return View("checkout");
+        return View("checkout");
       }
 
       order.Load(_unitOfWork);

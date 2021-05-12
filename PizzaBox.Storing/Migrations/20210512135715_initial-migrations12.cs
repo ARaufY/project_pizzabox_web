@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PizzaBox.Storing.Migrations
 {
-    public partial class initialmigrations : Migration
+    public partial class initialmigrations12 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -205,7 +205,9 @@ namespace PizzaBox.Storing.Migrations
                 values: new object[,]
                 {
                     { 1L, "Bruce Wyane", 0L, 0L },
-                    { 2L, "Clark Kent", 0L, 0L }
+                    { 2L, "Clark Kent", 0L, 0L },
+                    { 3L, "Dan Kent", 0L, 0L },
+                    { 4L, "Sam Jones", 0L, 0L }
                 });
 
             migrationBuilder.InsertData(
@@ -213,9 +215,19 @@ namespace PizzaBox.Storing.Migrations
                 columns: new[] { "EntityId", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1L, "small", 2.0m },
                     { 2L, "medium", 3.0m },
-                    { 3L, "large", 5.0m }
+                    { 3L, "large", 5.0m },
+                    { 1L, "small", 2.0m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Stores",
+                columns: new[] { "EntityId", "Name", "OrderEntityId" },
+                values: new object[,]
+                {
+                    { 1L, "Main St. Store", 0L },
+                    { 2L, "Ace Store", 0L },
+                    { 3L, "Lane Avenue Store", 0L }
                 });
 
             migrationBuilder.InsertData(
@@ -223,11 +235,14 @@ namespace PizzaBox.Storing.Migrations
                 columns: new[] { "EntityId", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1L, "pepperoni", 2.0m },
+                    { 7L, "chicken", 3.0m },
+                    { 1L, "pepperoni", 1.0m },
                     { 2L, "pineapple", 2.0m },
-                    { 3L, "ham", 2.0m },
-                    { 4L, "green peppers", 2.0m },
-                    { 5L, "black olives", 2.0m }
+                    { 3L, "ham", 1.3m },
+                    { 4L, "green peppers", 1.0m },
+                    { 5L, "black olives", 2.0m },
+                    { 6L, "beaf", 3.0m },
+                    { 8L, "Onions", 0.6m }
                 });
 
             migrationBuilder.CreateIndex(

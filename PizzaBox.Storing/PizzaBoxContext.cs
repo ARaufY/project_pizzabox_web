@@ -58,23 +58,37 @@ namespace PizzaBox.Storage
 
       builder.Entity<Topping>().HasData(new[]
       {
-        new Topping() { EntityId = 1, Name = "pepperoni", Price = 2.0m},
+        new Topping() { EntityId = 1, Name = "pepperoni", Price = 1.0m},
         new Topping() { EntityId = 2, Name = "pineapple", Price = 2.0m },
-        new Topping() { EntityId = 3, Name = "ham", Price = 2.0m },
-        new Topping() { EntityId = 4, Name = "green peppers", Price = 2.0m },
-        new Topping() { EntityId = 5, Name = "black olives", Price = 2.0m }
+        new Topping() { EntityId = 3, Name = "ham", Price = 1.3m },
+        new Topping() { EntityId = 4, Name = "green peppers", Price = 1.0m },
+        new Topping() { EntityId = 5, Name = "black olives", Price = 2.0m },
+        new Topping() { EntityId = 6, Name = "beaf", Price = 3.0m },
+        new Topping() { EntityId = 7, Name = "chicken", Price = 3.0m },
+        new Topping(){EntityId = 8, Name = "Onions", Price = 0.6m}
       });
 
       builder.Entity<Customer>().HasData(new[]
       {
         new Customer(){EntityId = 1, Name = "Bruce Wyane"},
-        new Customer(){EntityId = 2, Name = "Clark Kent"}
+        new Customer(){EntityId = 2, Name = "Clark Kent"},
+        new Customer(){EntityId = 3, Name = "Dan Kent"},
+        new Customer(){EntityId = 4, Name = "Sam Jones"}
       });
 
       // builder.Entity<SpecialtyPizza>().HasData(new[]
       // {
-      //   new SpecialtyPizza(){EntityId = 1, Name = "Veggie Pizza",}
+      //   new SpecialtyPizza(){EntityId = 11, Name = "Veggie Pizza"},
+      //   new SpecialtyPizza(){EntityId = 12, Name = "Meat Pizza"}
       // });
+
+
+      builder.Entity<Store>().HasData(new[]
+      {
+        new Store(){EntityId = 1, Name = "Main St. Store"},
+        new Store(){EntityId = 2, Name = "Ace Store"},
+        new Store(){EntityId = 3, Name = "Lane Avenue Store"}
+      });
     }
   }
 }
