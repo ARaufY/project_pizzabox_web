@@ -37,6 +37,7 @@ namespace PizzaBox.Client.Controllers
         }
 
         var newPizza = new Pizza { Crust = crust, Size = size, Toppings = toppings };
+        var cost = crust.Price + size.Price + toppings.Sum(t => t.Price);
         var newOrder = new Order { Pizzas = new List<Pizza> { newPizza }, Customer = customer, Store = store, OrderDate = DateTime.Now };
 
         _unitOfWork.Orders.Insert(newOrder);
