@@ -47,8 +47,18 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+  deploy:
+    needs:
+      - login
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: arauf
+          images: arufy/pizzabox
 
 
 
