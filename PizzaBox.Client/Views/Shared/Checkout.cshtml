@@ -1,0 +1,60 @@
+<h2>Thank you for your order</h2>
+<a href="/home">home</a>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">
+        Customer
+      </th>
+      <th scope="col">
+        Crust
+      </th>
+      <th scope="col">
+        Size
+      </th>
+      <th scope="col">
+        Toppings
+      </th>
+      <th scope="col">
+        Store
+      </th>
+      <th scope="col">
+        Order Time
+      </th>
+    </tr>
+  </thead>
+
+
+  @foreach (var item in ViewBag.Order.Pizzas)
+  {
+    <tr>
+      <td>
+        @ViewBag.Order.Customer
+      </td>
+      <td>
+        @item.Crust
+      </td>
+      <td>
+        @item.Size
+      </td>
+      <td>
+        <ul>
+          @foreach (var thing in item.Toppings)
+          {
+            <li>@thing</li>
+          }
+        </ul>
+      </td>
+      <td>
+        @ViewBag.Order.Store
+      </td>
+      <td>
+        @ViewBag.Order.OrderDate
+      </td>
+    </tr>
+
+  }
+
+</table>
